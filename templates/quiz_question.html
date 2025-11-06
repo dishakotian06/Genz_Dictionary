@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎮 Quiz Question {{ index }}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="quiz-page">
+
+
+<button id="themeToggle">🌙 Dark Mode</button>
+
+<div class="card main-card">
+    <h1>🎮 Question {{ index }} of {{ total }}</h1>
+    <p>{{ q.question }}</p>
+
+    <form method="POST">
+        {% for opt in q.options %}
+            <label class="quiz-option">
+                <input type="radio" name="answer" value="{{ opt }}" required>
+                {{ opt }}
+            </label>
+        {% endfor %}
+        <button type="submit">Next</button>
+    </form>
+
+    <div class="button-group">
+        <a href="/">🏠 Home</a>
+    </div>
+</div>
+
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

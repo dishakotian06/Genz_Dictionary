@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎮 GenZ Quiz</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="quiz-page">
+
+<button id="themeToggle">🌙 Dark Mode</button>
+
+<div class="card main-card">
+    <h1>🎮 GenZ Quiz</h1>
+    <p class="tagline">Select a difficulty level to test your skills! 💡</p>
+
+    <form method="POST">
+        <label for="level">Select Level:</label><br><br>
+        <select name="level" id="level" required>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+        </select><br><br>
+        <button type="submit">Start Quiz</button>
+    </form>
+
+    <div class="button-group">
+        <a href="/">🏠 Home</a>
+    </div>
+</div>
+
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+<div class="floating-emojis">
+    <span>🎮</span>
+    <span>✨</span>
+    <span>🔥</span>
+    <span>🏆</span>
+    <span>💥</span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📚 GenZ Dictionary</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="page-dictionary">
+
+<button id="themeToggle">🌙 Dark Mode</button>
+
+<div class="card main-card">
+    <h1>📚 GenZ Dictionary</h1>
+    <p class="tagline">Search for the latest Gen Z words! 🔍</p>
+
+    <form action="/search" method="POST">
+        <input type="text" name="word" placeholder="Enter a GenZ word" required>
+        <button type="submit">Search</button>
+    </form>
+
+    <div class="button-group">
+        <a href="/">🏠 Home</a>
+    </div>
+</div>
+<div class="floating-emojis">
+    <span>📚</span>
+    <span>💡</span>
+    <span>✨</span>
+    <span>📝</span>
+    <span>🔥</span>
+</div>
+
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

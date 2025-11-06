@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎲 Mini Game</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="page-minigame">
+
+
+<button id="themeToggle">🌙 Dark Mode</button>
+
+<div class="card main-card">
+    <h1>🎲 Mini Game - Unscramble</h1>
+
+    {% if result %}
+        <p><b>{{ result }}</b></p>
+    {% endif %}
+
+    <form method="POST">
+        <p>Unscramble this word: <b>{{ scrambled }}</b></p>
+        <input type="text" name="guess" placeholder="Type your guess" required>
+        <input type="hidden" name="scrambled" value="{{ scrambled }}">
+        <input type="hidden" name="correct_word" value="{{ word }}">
+        <button type="submit">Submit</button>
+    </form>
+
+    <div class="button-group">
+        <a href="/mini_game">Try Another</a>
+        <a href="/">🏠 Home</a>
+    </div>
+</div>
+<div class="floating-emojis">
+    <span>🎲</span>
+    <span>🔥</span>
+    <span>💫</span>
+    <span>🎮</span>
+    <span>🌟</span>
+</div>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

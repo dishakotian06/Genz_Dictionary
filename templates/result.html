@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🔍 Word Meaning</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="page-dictionary"></body>
+
+<button id="themeToggle">🌙 Dark Mode</button>
+
+<div class="card main-card">
+    <h1>🔍 Result</h1>
+    <p><strong>{{ word }}</strong> means: {{ meaning }}</p>
+
+    <div class="button-group">
+        <a href="/dictionary">🔙 Search Again</a>
+        <a href="/">🏠 Home</a>
+    </div>
+</div>
+<div class="floating-emojis">
+    <span>🎲</span>
+    <span>🔥</span>
+    <span>💫</span>
+    <span>🎮</span>
+    <span>🌟</span>
+</div>
+
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
