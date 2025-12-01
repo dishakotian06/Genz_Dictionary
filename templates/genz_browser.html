@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 Gen-Z Dictionary Browser</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="page-genz">
+
+
+
+<h1>📚 Gen-Z Dictionary Browser</h1>
+
+<!-- Back to Home Button -->
+<a href="/" class="back-home-btn">🏠 Back to Home</a>
+
+<div class="browser-container">
+
+    <!-- LEFT PANEL: Alphabet -->
+    <div class="browser-panel alphabet-panel">
+        <h3>🔤 A&ndash;Z</h3>
+
+        <div class="alphabet-list" id="alphabetList">
+            {% for letter in grouped.keys()|sort %}
+                <button class="alphabet-btn" data-letter="{{ letter }}">
+                    {{ letter }}
+                </button>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- MIDDLE PANEL: Words -->
+    <div class="browser-panel word-panel">
+        <h3>📘 Words</h3>
+        <ul id="wordList"></ul>
+    </div>
+
+    <!-- RIGHT PANEL: Meaning -->
+    <div class="browser-panel meaning-panel">
+        <h3>✨ Meaning</h3>
+        <div id="meaningBox" class="meaning-box">
+            <p>Select a word to view meaning 💡</p>
+        </div>
+    </div>
+
+</div>
+
+<!-- Floating Emojis -->
+<div class="floating-emojis">
+    <span>🔥</span>
+    <span>💎</span>
+    <span>✨</span>
+    <span>🥳</span>
+    <span>💖</span>
+</div>
+
+<!-- Hidden div with grouped dictionary JSON -->
+<div id="groupedData" data-grouped='{{ grouped | tojson | safe }}'></div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

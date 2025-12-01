@@ -1,5 +1,7 @@
-from flask import Flask, render_template, request, session, redirect, url_for
+from flask import Flask, render_template, request, session, redirect, url_for, jsonify
 import random
+from pathlib import Path
+import json
 
 app = Flask(__name__)
 app.secret_key = "supersecretkey"
@@ -271,6 +273,40 @@ def mini_game():
     return render_template("mini_game.html", scrambled=scrambled, word=word, result=None)
 
 
+
+# -------------------- GEN-Z BROWSER --------------------
+
+
+
+DICTIONARY_PATH = Path("data/dictionary.json")
+
+def load_dictionary():
+    if DICTIONARY_PATH.exists():
+        with open(DICTIONARY_PATH, "r", encoding="utf-8") as f:
+            return json.load(f)
+    else:
+        return {} 
+    
+@app.route("/genz_browser")
+def genz_browser():
+    dictionary_data = load_dictionary()  # Your JSON dictionary file
+
+    grouped = {}
+    for word in dictionary_data.keys():
+        letter = word[0].upper()
+        grouped.setdefault(letter, []).append(word)
+
+    # Sort words alphabetically in each letter
+    for k in grouped:
+        grouped[k].sort()
+
+    return render_template("genz_browser.html", grouped=grouped)
+@app.route("/get_meaning")
+def get_meaning():
+    word = request.args.get("word")
+    dictionary_data = load_dictionary()
+    meaning = dictionary_data.get(word, "Meaning not found")
+    return jsonify({"word": word, "meaning": meaning})
 
 
 

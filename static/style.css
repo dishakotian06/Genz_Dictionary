@@ -321,3 +321,101 @@ body.page-minigame .floating-emojis span:nth-child(2) { left: 30%; animation-del
 body.page-minigame .floating-emojis span:nth-child(3) { left: 50%; animation-delay: 3s; }
 body.page-minigame .floating-emojis span:nth-child(4) { left: 70%; animation-delay: 4.5s; }
 body.page-minigame .floating-emojis span:nth-child(5) { left: 90%; animation-delay: 6s; }
+/* ---------- GEN-Z BROWSER (Dictionary Page) ---------- */
+/* ---------- GEN-Z BROWSER (Dictionary Page) ---------- */
+body.page-genz {
+    background: url('/static/images/genz-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+}
+
+body.page-genz::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0,0,0,0.3); /* dark overlay for readability */
+    z-index: -1;
+}
+
+/* Browser container */
+.browser-container {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Panel for word list */
+.browser-panel {
+    flex: 1;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(8px);
+    padding: 15px;
+    border-radius: 15px;
+    overflow-y: auto;
+    min-height: 400px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* Alphabet buttons (A-Z) */
+.alphabet-btn {
+    width: 45px;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    background: linear-gradient(90deg, #ff6ec4, #7873f5);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(255,105,180,0.6), 0 0 30px rgba(120,115,245,0.4);
+    transition: all 0.3s ease;
+}
+
+.alphabet-btn:hover {
+    transform: translateY(-2px) scale(1.1);
+    box-shadow: 0 0 25px rgba(255,105,180,0.8), 0 0 40px rgba(120,115,245,0.6);
+    background: linear-gradient(90deg, #7873f5, #ff6ec4);
+}
+
+/* ---------- Word Items ---------- */
+.word-item {
+    padding: 12px 15px;
+    margin: 8px 0;
+    border-radius: 12px;
+    cursor: pointer;
+    background: linear-gradient(90deg, #a1c4fd, #c2e9fb);
+    color: #222;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.word-item:hover {
+    background: linear-gradient(90deg, #ff6ec4, #7873f5);
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(255,105,180,0.6), 0 10px 30px rgba(120,115,245,0.5);
+}
+
+/* ---------- Meaning Box ---------- */
+.meaning-box {
+    font-size: 1.2rem;
+    padding: 15px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0.15));
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+.meaning-box h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.meaning-box p {
+    font-size: 1.2rem;
+    color: #222;
+}
